@@ -1,33 +1,29 @@
 %{
-#include "compiler.tab.h"
-#include <string.h>
+#include <stdio.h>
 #include <stdlib.h>
-
-// Definindo yywrap como um protótipo completo para evitar o aviso
-int yywrap(void) {
-    return 1;
-}
+#include <string.h>         /* Necessário para strdup */
+#include "compiler.tab.h"   /* Cabeçalho gerado pelo Bison */
 %}
 
-IDENTIFIER [a-zA-Z_][a-zA-Z_0-9]*
+%%
+
+ /* Definindo os padrões para os tokens */
+[0-9]+                  { yylval.valor_int = atoi(yytext); return NUMERO; }
+[ \t\n]+                { /* ignora espaços em branco */ }
+"+"                     { return '+'; }
+"-"                     { return '-'; }
+"*"                     { return '*'; }
+"/"                     { return '/'; }
+"="                     { return '='; }
+[A-Za-z_][A-Za-z0-9_]*  { yylval.nome = strdup(yytext); return IDENTIFIER; }
 
 %%
 
-"int"       { return TIPO_INT; }
-"char"      { return TIPO_CHAR; }
-
-{IDENTIFIER} {
-    yylval.valor_str = strdup(yytext);
-    return IDENTIFIER;
+int yywrap(void) {
+    return 1;  /* Indica o final da entrada */
 }
 
-[0-9]+      {
-    yylval.valor_int = atoi(yytext);
-    return TIPO_INT;
+int main() {
+    yylex();  // Chama a função yylex gerada automaticamente
+    return 0;
 }
-
-[ \t\n]+    ;       // Ignora espaços em branco
-
-.           ;       // Ignora outros caracteres
-
-%%
