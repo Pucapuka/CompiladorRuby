@@ -1,15 +1,16 @@
+// tabela_simbolos.h
 #ifndef TABELA_SIMBOLOS_H
 #define TABELA_SIMBOLOS_H
 
-#define TIPO_INT 300
-#define TIPO_CHAR 301
+#define TYPE_INT 300
+#define TYPE_CHAR 301
 
 typedef struct Simbolo {
     char nome[100];
     int tipo;
     int valor_int;
     char valor_char;
-    struct Simbolo *prox;
+    struct Simbolo* prox;
 } Simbolo;
 
 Simbolo* buscar_simbolo(const char* nome);

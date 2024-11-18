@@ -1,54 +1,43 @@
 %{
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "tabela_simbolos.h"
 
-extern int yylex(void);
-extern void yyerror(const char *s);
+// Função para exibir mensagens de erro
+void yyerror(const char *s) {
+    fprintf(stderr, "Erro: %s\n", s);
+}
+
+int yylex(void);
 %}
 
+%token TIPO_INT TIPO_CHAR IDENTIFIER
 %union {
     int valor_int;
-    char valor_char;
+    char *valor_str;
 }
 
-%token <valor_int> TIPO_INT
-%token <valor_char> TIPO_CHAR
-%token <valor_int> IDENTIFIER
-%type <valor_int> expression
+%type <valor_str> IDENTIFIER
+%type <valor_int> TIPO_INT
+
+%%
+programa:
+    declaracoes
+    ;
+
+declaracoes:
+    declaracao
+    | declaracoes declaracao
+    ;
+
+declaracao:
+    TIPO_INT IDENTIFIER ';' { printf("Declaração de int: %s\n", $2); }
+    | TIPO_CHAR IDENTIFIER ';' { printf("Declaração de char: %s\n", $2); }
+    ;
 
 %%
 
-program:
-    | program statement
-;
-
-statement:
-      TIPO_INT IDENTIFIER ';'
-    | TIPO_CHAR IDENTIFIER ';'
-    | expression ';'
-;
-
-expression:
-    IDENTIFIER { 
-        Simbolo* sim = buscar_simbolo(yytext);
-        if (sim == NULL) {
-            printf("Erro: variável '%s' não declarada.\n", yytext);
-            exit(1);
-        }
-        $$ = sim->valor_int;
-    }
-    | expression '+' expression
-    | expression '-' expression
-;
-
-%%
-
-int main(void) {
-    yyparse();
-    return 0;
-}
-
-void yyerror(const char *s) {
-    fprintf(stderr, "Erro de sintaxe: %s\n", s);
+int main() {
+    return yyparse();
 }

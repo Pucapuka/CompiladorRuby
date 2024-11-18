@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 int w = 2;
 
 int main() {
