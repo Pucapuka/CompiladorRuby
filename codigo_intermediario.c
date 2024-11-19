@@ -4,13 +4,11 @@
 #include "codigo_intermediario.h"
 
 #define MAX_INSTRUCOES 1000
+#define MAX_TEMP_VARS 100
 
 static Instrucao instrucoes[MAX_INSTRUCOES];
 static int contador_instrucoes = 0;
-
-void inicializar_codigo() {
-    contador_instrucoes = 0;
-}
+static int contador_temp = 0; // Contador para as variáveis temporárias
 
 void adicionar_instrucao(const char *op, const char *arg1, const char *arg2, const char *result) {
     if (contador_instrucoes >= MAX_INSTRUCOES) {
@@ -38,4 +36,10 @@ void liberar_codigo() {
         free(instrucoes[i].result);
     }
     contador_instrucoes = 0;
+}
+
+char* nova_temp() {
+    char* temp = (char*)malloc(10);
+    snprintf(temp, 10, "t%d", contador_temp++);
+    return temp;
 }
