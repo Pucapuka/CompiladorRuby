@@ -10,10 +10,10 @@ a = 3
 b = 4
 d = a+b
 
-if(x==1):
+if(x==1)
 	c=1
-elsif(y==1):
+elsif(y==1)
 	c=2
-else:
+else
 	c=1
 

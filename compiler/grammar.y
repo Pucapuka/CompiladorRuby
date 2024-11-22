@@ -933,15 +933,15 @@ cmpd_stmt : if_stmt {$$ = $1;}
           | while_stmt {$$ = $1;};
 
 
-if_stmt : T_If bool_exp T_Cln start_suite {$$ = createOp("If", 2, $2, $4);}
-        | T_If bool_exp T_Cln start_suite elif_stmts {$$ = createOp("If", 3, $2, $4, $5);};
+if_stmt : T_If bool_exp start_suite {$$ = createOp("If", 2, $2, $3);}
+        | T_If bool_exp start_suite elif_stmts {$$ = createOp("If", 3, $2, $4, $4);};
 
 elif_stmts : else_stmt {$$= $1;}
            | T_Elsif bool_exp T_Cln start_suite elif_stmts {$$= createOp("Elsif", 3, $2, $4, $5);};
 
-else_stmt : T_Else T_Cln start_suite {$$ = createOp("Else", 1, $3);};
+else_stmt : T_Else start_suite {$$ = createOp("Else", 1, $2);};
 
-while_stmt : T_While bool_exp T_Cln start_suite {$$ = createOp("While", 2, $2, $4);}; 
+while_stmt : T_While bool_exp start_suite {$$ = createOp("While", 2, $2, $3);}; 
 
 start_suite : basic_stmt {$$ = $1;}
             | T_NL ID {initNewTable($<depth>2); updateCScope($<depth>2);} finalStatements suite {$$ = createOp("BeginBlock", 2, $4, $5);};
@@ -966,7 +966,7 @@ call_args : T_ID {addToList($<text>1, 1);} call_list {$$ = createOp(argsList, 0)
 					| T_String {addToList($<text>1, 1);} call_list {$$ = createOp(argsList, 0); clearArgsList();}	
 					| {$$ = createOp("Void", 0);};
 
-func_def : T_Def T_ID {insertRecord("Func_Name", $<text>2, @2.first_line, currentScope);} T_OP args T_CP T_Cln start_suite {$$ = createOp("Func_Name", 3, createID_Const("Func_Name", $<text>2, currentScope), $5, $8);};
+func_def : T_Def T_ID {insertRecord("Func_Name", $<text>2, @2.first_line, currentScope);} T_OP args T_CP  start_suite {$$ = createOp("Func_Name", 3, createID_Const("Func_Name", $<text>2, currentScope), $5, $7);};
 
 func_call : T_ID T_OP call_args T_CP {$$ = createOp("Func_Call", 2, createID_Const("Func_Name", $<text>1, currentScope), $3);};
 
