@@ -72,7 +72,7 @@
 %}
 %option yylineno
 whitespace [ ]
-Multiline_comment =begin.+=end
+Multiline_comment \'\'\'.+\'\'\'
 %%
 
 [\t]*		{
@@ -101,55 +101,48 @@ Multiline_comment =begin.+=end
 			}
 			
 		}
-"end" { debug("End"); return T_End; }
-"do" { debug("Do"); return T_Do; }
-"rescue" { debug("Rescue"); return T_Rescue; }
-"retry" { debug("Retry"); return T_Retry; }
-"ensure" { debug("Ensure"); return T_Ensure; }
-"begin" { debug("Begin"); return T_Begin; }
-"case" { debug("Case"); return T_Case; }
-"when" { debug("When"); return T_When; }
-"then" { debug("Then"); return T_Then; }
-"require" { debug("Require"); return T_Require; }
-"puts" { debug("Puts"); return T_Puts; }
-"pass" { debug("Pass"); return T_Pass; }
-"if" { debug("If"); return T_If; }
-"in" { debug("In"); return T_In; }
-"while" { debug("While"); return T_While; }
-"break" { debug("Break"); return T_Break; }
-"and" { debug("And"); return T_And; }
-"or" { debug("Or"); return T_Or; }
-"not" { debug("Not"); return T_Not; }
-"elsif" { debug("Elsif"); return T_Elsif; }
-"else" { debug("Else"); return T_Else; }
-"def" { debug("Def"); return T_Def; }
-"return" { debug("Return"); return T_Return; }
-":" { debug("Cln"); return T_Cln; }
-">" { debug("GT"); return T_GT; }
-"<" { debug("LT"); return T_LT; }
-">=" { debug("EGT"); return T_EGT; }
-"<=" { debug("ELT"); return T_ELT; }
-"==" { debug("EQ"); return T_EQ; }
-"!=" { debug("NEQ"); return T_NEQ; }
-"true" { debug("True"); return T_True; }
-"false" { debug("False"); return T_False; }
-"+" { debug("PL"); return T_PL; }
-"-" { debug("MN"); return T_MN; }
-"*" { debug("ML"); return T_ML; }
-"/" { debug("DV"); return T_DV; }
-"(" { debug("OP"); return T_OP; }
-")" { debug("CP"); return T_CP; }
-"[" { debug("OB"); return T_OB; }
-"]" { debug("CB"); return T_CB; }
-"," { debug("Comma"); return T_Comma; }
-"=" { debug("EQL"); return T_EQL; }
-[0-9]+ { yylval.text = strdup(yytext); debug(yylval.text); return T_Number; }
-[_a-zA-Z][_a-zA-Z0-9]* { yylval.text = strdup(yytext); debug(yylval.text); return T_ID; }
-\"([^\"\\n])*\" { yylval.text = strdup(yytext); debug(yylval.text); return T_String; }
-\'([^\'\\n])*\' { yylval.text = strdup(yytext); debug(yylval.text); return T_String; }
-"#"([^\"\\n])* { /* Comentário, ignora o conteúdo */ }
-{whitespace} {}
-"\n" { yycolumn = 1; debug("NL"); return T_NL; }
-<<EOF>> { debug("EOF"); return T_EndOfFile; }
+
+"require" {debug("REQ"); return T_Import;}
+"puts"  {debug("Puts"); return T_Print;}
+"pass" {debug("Pass"); return T_Pass;}
+"if" {debug("If"); return T_If;}
+"in" {debug("In"); return T_In;}
+"while" {debug("While"); return T_While;}
+"break" {debug("Break"); return T_Break;}
+"and" {debug("And"); return T_And;}
+"or" {debug("Or"); return T_Or;}
+"not" {debug("Not"); return T_Not;}
+"elsif" {debug("Elsif"); return T_Elsif;}
+"else" {debug("Else"); return T_Else;}
+"def" {debug("Def"); return T_Def;}
+"return" {debug("Return"); return T_Return;}
+":" {debug("Cln"); return T_Cln;}
+">" {debug("GT"); return T_GT;}
+"<" {debug("LT"); return T_LT;}
+">=" {debug("EGT"); return T_EGT;}
+"<=" {debug("ELT"); return T_ELT;}
+"==" {debug("EQ"); return T_EQ;}
+"!=" {debug("NEQ"); return T_NEQ;}
+"True" {debug("True"); return T_True;}
+"False" {debug("False"); return T_False;}
+"+" {debug("PL"); return T_PL;}
+"-" {debug("MN"); return T_MN;}
+"*" {debug("ML"); return T_ML;}
+"/" {debug("DV"); return T_DV;}
+"(" {debug("OP"); return T_OP;}
+")" {debug("CP"); return T_CP;}
+"[" {debug("OB"); return T_OB;}
+"]" {debug("CB"); return T_CB;}
+"," {debug("Comma"); return T_Comma;}
+"=" {debug("EQL"); return T_EQL;}
+"list" {debug("List"); return T_List;}
+[0-9]+ {yylval.text = strdup(yytext); debug(yylval.text); return T_Number;}
+[_a-zA-Z][_a-zA-Z0-9]* {yylval.text = strdup(yytext); debug(yylval.text); return T_ID;}
+\"([^\"\n])*\" {yylval.text = strdup(yytext); debug(yylval.text); return T_String;}
+\'([^\'\n])*\' {yylval.text = strdup(yytext); debug(yylval.text); return T_String;}
+"#"([a-z]|[0-9]|[A-Z]|" ")* {}
+{whitespace} {} 
+"\n" {yycolumn=1; debug("NL"); return T_NL;}
+<<EOF>> {debug("EOF"); return T_EndOfFile;}
 
 %%

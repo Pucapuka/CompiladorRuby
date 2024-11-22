@@ -33,7 +33,8 @@ bison --version
 ### Executando
 #### Automaticamente
 ```
-make
+make (para construção dos componentes)
+make clean (para a remoção dos componentes construídos com o make)
 ```
 #### Manualmente
 ##### 1. Gera o arquvio lex.yy.c a partir do grammar.l
