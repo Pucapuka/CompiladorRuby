@@ -1,5 +1,5 @@
-prog: ./compiler/grammar.l ./compiler/grammar.y
-	flex ./compiler/grammar.l
+prog: ./compiler/lexer.l ./compiler/grammar.y
+	flex ./compiler/lexer.l
 	bison -d ./compiler/grammar.y
 	gcc -o cruby grammar.tab.c lex.yy.c -lfl
 

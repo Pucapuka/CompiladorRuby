@@ -532,8 +532,8 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "./compiler/grammar.l"
-#line 2 "./compiler/grammar.l"
+#line 1 "./compiler/lexer.l"
+#line 2 "./compiler/lexer.l"
 	#include <string.h>
 	#include "grammar.tab.h"
 	#define stack_size 100
@@ -822,7 +822,7 @@ YY_DECL
 		}
 
 	{
-#line 76 "./compiler/grammar.l"
+#line 76 "./compiler/lexer.l"
 
 
 #line 829 "lex.yy.c"
@@ -894,7 +894,7 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 78 "./compiler/grammar.l"
+#line 78 "./compiler/lexer.l"
 {
 			depth = indent_depth(yytext);
 //			printf("Depth : %d ",  depth);
@@ -924,217 +924,217 @@ YY_RULE_SETUP
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 105 "./compiler/grammar.l"
+#line 105 "./compiler/lexer.l"
 {debug("REQ"); return T_Import;}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 106 "./compiler/grammar.l"
+#line 106 "./compiler/lexer.l"
 {debug("Puts"); return T_Print;}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 107 "./compiler/grammar.l"
+#line 107 "./compiler/lexer.l"
 {debug("Pass"); return T_Pass;}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 108 "./compiler/grammar.l"
+#line 108 "./compiler/lexer.l"
 {debug("If"); return T_If;}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 109 "./compiler/grammar.l"
+#line 109 "./compiler/lexer.l"
 {debug("In"); return T_In;}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 110 "./compiler/grammar.l"
+#line 110 "./compiler/lexer.l"
 {debug("While"); return T_While;}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 111 "./compiler/grammar.l"
+#line 111 "./compiler/lexer.l"
 {debug("Break"); return T_Break;}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 112 "./compiler/grammar.l"
+#line 112 "./compiler/lexer.l"
 {debug("And"); return T_And;}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 113 "./compiler/grammar.l"
+#line 113 "./compiler/lexer.l"
 {debug("Or"); return T_Or;}
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 114 "./compiler/grammar.l"
+#line 114 "./compiler/lexer.l"
 {debug("Not"); return T_Not;}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 115 "./compiler/grammar.l"
+#line 115 "./compiler/lexer.l"
 {debug("Elsif"); return T_Elsif;}
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 116 "./compiler/grammar.l"
+#line 116 "./compiler/lexer.l"
 {debug("Else"); return T_Else;}
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 117 "./compiler/grammar.l"
+#line 117 "./compiler/lexer.l"
 {debug("Def"); return T_Def;}
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 118 "./compiler/grammar.l"
+#line 118 "./compiler/lexer.l"
 {debug("Return"); return T_Return;}
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 119 "./compiler/grammar.l"
+#line 119 "./compiler/lexer.l"
 {debug("Cln"); return T_Cln;}
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 120 "./compiler/grammar.l"
+#line 120 "./compiler/lexer.l"
 {debug("GT"); return T_GT;}
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 121 "./compiler/grammar.l"
+#line 121 "./compiler/lexer.l"
 {debug("LT"); return T_LT;}
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 122 "./compiler/grammar.l"
+#line 122 "./compiler/lexer.l"
 {debug("EGT"); return T_EGT;}
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 123 "./compiler/grammar.l"
+#line 123 "./compiler/lexer.l"
 {debug("ELT"); return T_ELT;}
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 124 "./compiler/grammar.l"
+#line 124 "./compiler/lexer.l"
 {debug("EQ"); return T_EQ;}
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 125 "./compiler/grammar.l"
+#line 125 "./compiler/lexer.l"
 {debug("NEQ"); return T_NEQ;}
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 126 "./compiler/grammar.l"
+#line 126 "./compiler/lexer.l"
 {debug("True"); return T_True;}
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 127 "./compiler/grammar.l"
+#line 127 "./compiler/lexer.l"
 {debug("False"); return T_False;}
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 128 "./compiler/grammar.l"
+#line 128 "./compiler/lexer.l"
 {debug("PL"); return T_PL;}
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 129 "./compiler/grammar.l"
+#line 129 "./compiler/lexer.l"
 {debug("MN"); return T_MN;}
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 130 "./compiler/grammar.l"
+#line 130 "./compiler/lexer.l"
 {debug("ML"); return T_ML;}
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 131 "./compiler/grammar.l"
+#line 131 "./compiler/lexer.l"
 {debug("DV"); return T_DV;}
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 132 "./compiler/grammar.l"
+#line 132 "./compiler/lexer.l"
 {debug("OP"); return T_OP;}
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 133 "./compiler/grammar.l"
+#line 133 "./compiler/lexer.l"
 {debug("CP"); return T_CP;}
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 134 "./compiler/grammar.l"
+#line 134 "./compiler/lexer.l"
 {debug("OB"); return T_OB;}
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 135 "./compiler/grammar.l"
+#line 135 "./compiler/lexer.l"
 {debug("CB"); return T_CB;}
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 136 "./compiler/grammar.l"
+#line 136 "./compiler/lexer.l"
 {debug("Comma"); return T_Comma;}
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 137 "./compiler/grammar.l"
+#line 137 "./compiler/lexer.l"
 {debug("EQL"); return T_EQL;}
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 138 "./compiler/grammar.l"
+#line 138 "./compiler/lexer.l"
 {debug("List"); return T_List;}
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 139 "./compiler/grammar.l"
+#line 139 "./compiler/lexer.l"
 {yylval.text = strdup(yytext); debug(yylval.text); return T_Number;}
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 140 "./compiler/grammar.l"
+#line 140 "./compiler/lexer.l"
 {yylval.text = strdup(yytext); debug(yylval.text); return T_ID;}
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 141 "./compiler/grammar.l"
+#line 141 "./compiler/lexer.l"
 {yylval.text = strdup(yytext); debug(yylval.text); return T_String;}
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 142 "./compiler/grammar.l"
+#line 142 "./compiler/lexer.l"
 {yylval.text = strdup(yytext); debug(yylval.text); return T_String;}
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
-#line 143 "./compiler/grammar.l"
+#line 143 "./compiler/lexer.l"
 {}
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
-#line 144 "./compiler/grammar.l"
+#line 144 "./compiler/lexer.l"
 {} 
 	YY_BREAK
 case 42:
 /* rule 42 can match eol */
 YY_RULE_SETUP
-#line 145 "./compiler/grammar.l"
+#line 145 "./compiler/lexer.l"
 {yycolumn=1; debug("NL"); return T_NL;}
 	YY_BREAK
 case YY_STATE_EOF(INITIAL):
-#line 146 "./compiler/grammar.l"
+#line 146 "./compiler/lexer.l"
 {debug("EOF"); return T_EndOfFile;}
 	YY_BREAK
 case 43:
 YY_RULE_SETUP
-#line 148 "./compiler/grammar.l"
+#line 148 "./compiler/lexer.l"
 ECHO;
 	YY_BREAK
 #line 1141 "lex.yy.c"
@@ -2152,6 +2152,6 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 148 "./compiler/grammar.l"
+#line 148 "./compiler/lexer.l"
 
 
