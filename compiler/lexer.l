@@ -116,7 +116,9 @@ Multiline_comment \'\'\'.+\'\'\'
 "else" {debug("Else"); return T_Else;}
 "def" {debug("Def"); return T_Def;}
 "return" {debug("Return"); return T_Return;}
+"then" {debug("Then"); return T_Then;}
 ":" {debug("Cln"); return T_Cln;}
+";" {debug("Scln"); return T_Scln;}
 ">" {debug("GT"); return T_GT;}
 "<" {debug("LT"); return T_LT;}
 ">=" {debug("EGT"); return T_EGT;}
