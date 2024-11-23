@@ -181,7 +181,7 @@
 		
 		if(opNode->NType == NULL)
 		{
-			if((!strcmp(opNode->id->type, "Identifier")) || (!strcmp(opNode->id->type, "Constant")))
+			if((!strcmp(opNode->id->type, "Identificador")) || (!strcmp(opNode->id->type, "Constant")))
 			{
 				printf("T%d = %s\n", opNode->nodeNo, opNode->id->name);
 				makeQ(makeStr(opNode->nodeNo, 1), opNode->id->name, "-", "=");
@@ -580,7 +580,7 @@
 					return;
 				}	
 			}
-			printf("%s '%s' at line %d Not Declared\n", type, name, yylineno);
+			printf("%s '%s' na linha %d Não declarado\n", type, name, yylineno);
 			exit(1);
 		}
 		
@@ -637,13 +637,13 @@
 
 				else if(strcmp(symbolTables[index].Elements[i].name, name)==0)
 				{
-					printf("Identifier '%s' at line %d Not Indexable\n", name, yylineno);
+					printf("Identificador '%s' na linha %d não indexável\n", name, yylineno);
 					exit(1);
 
 				}
 
 			}
-			printf("Identifier '%s' at line %d Not Indexable\n", name, yylineno);
+			printf("Identificador '%s' na linha %d não indexável\n", name, yylineno);
 			exit(1);
 		}
 		
@@ -657,7 +657,7 @@
 			
 			else if(strcmp(symbolTables[index].Elements[i].name, name)==0)
 			{
-				printf("Identifier '%s' at line %d Not Indexable\n", name, yylineno);
+				printf("Identificador '%s' at line %d não indexável\n", name, yylineno);
 				exit(1);
 
 			}
@@ -682,7 +682,7 @@
 					return &(symbolTables[index].Elements[i]);
 				}	
 			}
-			printf("\n%s '%s' at line %d Not Found in Symbol Table\n", type, name, yylineno);
+			printf("\n%s '%s' at line %d não encontrado na tabela de símbolos\n", type, name, yylineno);
 			exit(1);
 		}
 		
@@ -856,7 +856,7 @@
 %%
 
 StartDebugger : {init();} StartParse T_EndOfFile {
-		printf("\nValid Ruby Syntax\n");  printAST($2);
+		printf("\nSintaxe Ruby Válida\n");  printAST($2);
 		printf("\n-------------------------Código de 3 endereços--------------------------\n"); 
 		codeGenOp($2); 
 		printSTable(); 
@@ -867,7 +867,7 @@ StartDebugger : {init();} StartParse T_EndOfFile {
 constant : T_Number {insertRecord("Constant", $<text>1, @1.first_line, currentScope); $$ = createID_Const("Constant", $<text>1, currentScope);}
          | T_String {insertRecord("Constant", $<text>1, @1.first_line, currentScope); $$ = createID_Const("Constant", $<text>1, currentScope);};
 
-term : T_ID {modifyRecordID("Identifier", $<text>1, @1.first_line, currentScope); $$ = createID_Const("Identifier", $<text>1, currentScope);} 
+term : T_ID {modifyRecordID("Identificador", $<text>1, @1.first_line, currentScope); $$ = createID_Const("Identificador", $<text>1, currentScope);} 
      | constant {$$ = $1;} 
      | list_index {$$ = $1;};
 
@@ -916,9 +916,9 @@ pass_stmt : T_Pass {$$ = createOp("pass", 0);};
 break_stmt : T_Break {$$ = createOp("break", 0);};
 return_stmt : T_Return {$$ = createOp("return", 0);};;
 
-assign_stmt : T_ID T_EQL arith_exp {insertRecord("Identifier", $<text>1, @1.first_line, currentScope); $$ = createOp("=", 2, createID_Const("Identifier", $<text>1, currentScope), $3);}  
-            | T_ID T_EQL bool_exp {insertRecord("Identifier", $<text>1, @1.first_line, currentScope);$$ = createOp("=", 2, createID_Const("Identifier", $<text>1, currentScope), $3);}   
-            | T_ID  T_EQL func_call {insertRecord("Identifier", $<text>1, @1.first_line, currentScope); $$ = createOp("=", 2, createID_Const("Identifier", $<text>1, currentScope), $3);} 
+assign_stmt : T_ID T_EQL arith_exp {insertRecord("Identificador", $<text>1, @1.first_line, currentScope); $$ = createOp("=", 2, createID_Const("Identificador", $<text>1, currentScope), $3);}  
+            | T_ID T_EQL bool_exp {insertRecord("Identificador", $<text>1, @1.first_line, currentScope);$$ = createOp("=", 2, createID_Const("Identificador", $<text>1, currentScope), $3);}   
+            | T_ID  T_EQL func_call {insertRecord("Identificador", $<text>1, @1.first_line, currentScope); $$ = createOp("=", 2, createID_Const("Identificador", $<text>1, currentScope), $3);} 
             | T_ID T_EQL T_OB T_CB {insertRecord("ListTypeID", $<text>1, @1.first_line, currentScope); $$ = createID_Const("ListTypeID", $<text>1, currentScope);} ;
 	      
 print_stmt : T_Print T_OP term T_CP {$$ = createOp("Puts", 1, $3);};
@@ -937,7 +937,7 @@ if_stmt : T_If bool_exp start_suite {$$ = createOp("If", 2, $2, $3);}
         | T_If bool_exp start_suite elif_stmts {$$ = createOp("If", 3, $2, $4, $4);};
 
 elif_stmts : else_stmt {$$= $1;}
-           | T_Elsif bool_exp T_Cln start_suite elif_stmts {$$= createOp("Elsif", 3, $2, $4, $5);};
+           | T_Elsif bool_exp start_suite elif_stmts {$$= createOp("Elsif", 3, $2, $4, $4);};
 
 else_stmt : T_Else start_suite {$$ = createOp("Else", 1, $2);};
 

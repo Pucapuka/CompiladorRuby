@@ -5,12 +5,12 @@
  - <a href="https://github.com/Pucapuka">Paulo Anderson Gonçalves de Lima</a>
  - <a href="https://github.com/AngCarlos-2">Ângelo Carlos</a>
  - <a href="https://github.com/Araujomann">Lucas Araújo</a> 
- - <a href="">Ester Miriã</a>
+ - <a href="https://github.com/Estermiria777">Ester Miriã</a>
  ----
 ## Como executar
 ### Dependências
- - Flex - Para compilar o arquivo Lex
- - Bison - Para compilar o arquivo Yacc
+ - Flex - Para compilar o arquivo lexer.l
+ - Bison - Para compilar o arquivo grammar.y
  - Gcc - Compilador C para criação do Parser
 
 #### Instalação Ubuntu
@@ -32,6 +32,12 @@ bison --version
 ---
 ### Executando
 #### Automaticamente
+##### 1. Roda o programa diretamente (com menu para cada arquivo exemplo, compilando-o e executando-o diretamente)
+```
+menu.exe (compilado do menu.c)
+```
+
+##### 2. Compilando sem rodar o programa e apagando componentes
 ```
 make (para construção dos componentes)
 make clean (para a remoção dos componentes construídos com o make)
@@ -39,7 +45,7 @@ make clean (para a remoção dos componentes construídos com o make)
 #### Manualmente
 ##### 1. Gera o arquvio lex.yy.c a partir do grammar.l
 ```
-flex ./compiler/grammar.l 
+flex ./compiler/lexer.l 
 ```
 ##### 2. Gera os arquivos grammar.tab.c e grammar.tab.h a partir do grammar.y
 ```

@@ -251,7 +251,7 @@
 		
 		if(opNode->NType == NULL)
 		{
-			if((!strcmp(opNode->id->type, "Identifier")) || (!strcmp(opNode->id->type, "Constant")))
+			if((!strcmp(opNode->id->type, "Identificador")) || (!strcmp(opNode->id->type, "Constant")))
 			{
 				printf("T%d = %s\n", opNode->nodeNo, opNode->id->name);
 				makeQ(makeStr(opNode->nodeNo, 1), opNode->id->name, "-", "=");
@@ -650,7 +650,7 @@
 					return;
 				}	
 			}
-			printf("%s '%s' at line %d Not Declared\n", type, name, yylineno);
+			printf("%s '%s' na linha %d Não declarado\n", type, name, yylineno);
 			exit(1);
 		}
 		
@@ -707,13 +707,13 @@
 
 				else if(strcmp(symbolTables[index].Elements[i].name, name)==0)
 				{
-					printf("Identifier '%s' at line %d Not Indexable\n", name, yylineno);
+					printf("Identificador '%s' na linha %d não indexável\n", name, yylineno);
 					exit(1);
 
 				}
 
 			}
-			printf("Identifier '%s' at line %d Not Indexable\n", name, yylineno);
+			printf("Identificador '%s' na linha %d não indexável\n", name, yylineno);
 			exit(1);
 		}
 		
@@ -727,7 +727,7 @@
 			
 			else if(strcmp(symbolTables[index].Elements[i].name, name)==0)
 			{
-				printf("Identifier '%s' at line %d Not Indexable\n", name, yylineno);
+				printf("Identificador '%s' at line %d não indexável\n", name, yylineno);
 				exit(1);
 
 			}
@@ -752,7 +752,7 @@
 					return &(symbolTables[index].Elements[i]);
 				}	
 			}
-			printf("\n%s '%s' at line %d Not Found in Symbol Table\n", type, name, yylineno);
+			printf("\n%s '%s' at line %d não encontrado na tabela de símbolos\n", type, name, yylineno);
 			exit(1);
 		}
 		
@@ -1355,7 +1355,7 @@ union yyalloc
 /* YYFINAL -- State number of the termination state.  */
 #define YYFINAL  3
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   261
+#define YYLAST   247
 
 /* YYNTOKENS -- Number of terminals.  */
 #define YYNTOKENS  45
@@ -1364,7 +1364,7 @@ union yyalloc
 /* YYNRULES -- Number of rules.  */
 #define YYNRULES  93
 /* YYNSTATES -- Number of states.  */
-#define YYNSTATES  157
+#define YYNSTATES  156
 
 /* YYMAXUTOK -- Last valid token kind.  */
 #define YYMAXUTOK   299
@@ -1465,7 +1465,7 @@ yysymbol_name (yysymbol_kind_t yysymbol)
 }
 #endif
 
-#define YYPACT_NINF (-112)
+#define YYPACT_NINF (-74)
 
 #define yypact_value_is_default(Yyn) \
   ((Yyn) == YYPACT_NINF)
@@ -1479,22 +1479,22 @@ yysymbol_name (yysymbol_kind_t yysymbol)
    STATE-NUM.  */
 static const yytype_int16 yypact[] =
 {
-    -112,    11,   103,  -112,     7,  -112,  -112,  -112,  -112,     1,
-     -24,   103,    -2,  -112,   190,   190,    17,  -112,  -112,    59,
-     190,    25,  -112,  -112,  -112,    66,  -112,   224,  -112,    43,
-    -112,  -112,  -112,  -112,  -112,  -112,  -112,    61,  -112,  -112,
-    -112,  -112,  -112,  -112,    39,    12,    65,    70,  -112,   190,
-    -112,    36,   224,   181,   181,  -112,    59,    58,   215,    41,
-    -112,  -112,    59,    59,    59,    59,    59,    78,    59,    59,
-      59,    59,   190,   190,    99,    -9,    72,   224,  -112,  -112,
-    -112,  -112,  -112,    67,    85,    77,     3,   102,  -112,    38,
-    -112,   -13,  -112,  -112,    89,    84,    84,    84,    84,    84,
-    -112,    58,    58,  -112,  -112,    47,  -112,  -112,   103,  -112,
-      88,    88,    88,  -112,  -112,  -112,  -112,   190,   181,  -112,
-    -112,   120,  -112,    70,  -112,  -112,  -112,   142,   123,  -112,
-    -112,   100,  -112,   127,   181,    97,   181,    88,    75,  -112,
-      38,   134,  -112,  -112,  -112,   142,    87,  -112,  -112,  -112,
-     127,   142,  -112,    97,  -112,  -112,  -112
+     -74,    16,    89,   -74,    12,   -74,   -74,   -74,   -74,     6,
+      -2,    89,    -4,   -74,   176,   176,    18,   -74,   -74,    35,
+     176,    23,   -74,   -74,   -74,    59,   -74,   210,   -74,    56,
+     -74,   -74,   -74,   -74,   -74,   -74,   -74,    54,   -74,   -74,
+     -74,   -74,   -74,   -74,     7,    62,    86,   120,   -74,   176,
+     -74,    32,   210,   167,   167,   -74,    35,    77,   201,    40,
+     -74,   -74,    35,    35,    35,    35,    35,    69,    35,    35,
+      35,    35,   176,   176,    82,   -11,    58,   210,   -74,   -74,
+     -74,   -74,   -74,    63,    70,    65,    13,    94,   -74,    38,
+     -74,   -15,   -74,   -74,    81,   104,   104,   104,   104,   104,
+     -74,    77,    77,   -74,   -74,    72,   -74,   -74,    89,   -74,
+      83,    83,    83,   -74,   -74,   -74,   -74,   176,   167,   -74,
+     -74,   116,   -74,   120,   -74,   -74,   -74,   128,   167,   -74,
+     -74,    91,   -74,   133,    38,   102,   167,    83,   118,   -74,
+     -74,   142,   -74,   -74,   -74,   128,    52,   -74,   -74,   133,
+     128,   -74,   102,   -74,   -74,   -74
 };
 
 /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
@@ -1516,18 +1516,18 @@ static const yytype_int8 yydefact[] =
       83,    83,    83,    93,     9,    51,    66,     0,     0,    60,
       61,    77,    12,     0,    87,    85,    89,     0,     0,    63,
       75,     0,    81,     0,     0,    80,     0,    83,    74,    67,
-       0,     0,    76,    92,    82,     0,    70,    69,    62,    78,
-       0,     0,    73,    80,    68,    71,    79
+      62,     0,    76,    92,    82,     0,    70,    69,    78,     0,
+       0,    73,    80,    68,    71,    79
 };
 
 /* YYPGOTO[NTERM-NUM].  */
 static const yytype_int16 yypgoto[] =
 {
-    -112,  -112,  -112,    98,   -35,  -112,    -7,  -112,   -44,   -14,
-     -12,    50,   140,  -112,  -112,  -112,  -112,  -112,  -112,  -111,
-    -112,  -112,    13,  -112,  -112,   -47,  -112,     4,  -112,  -112,
-    -112,  -112,  -112,     2,  -112,   -84,  -112,  -112,  -112,  -112,
-    -112,  -112,  -112,   112
+     -74,   -74,   -74,   105,   -36,   -74,    -7,   -74,   -44,   -14,
+     -12,    75,   140,   -74,   -74,   -74,   -74,   -74,   -74,   -67,
+     -74,   -74,    19,   -74,   -74,   -47,   -74,     9,   -74,   -74,
+     -74,   -74,   -74,     4,   -74,   -73,   -74,   -74,   -74,   -74,
+     -74,   -74,   -74,   119
 };
 
 /* YYDEFGOTO[NTERM-NUM].  */
@@ -1535,8 +1535,8 @@ static const yytype_uint8 yydefgoto[] =
 {
        0,     1,     2,    22,    23,    24,    25,   108,    26,    27,
       28,    29,    30,    31,    32,    33,    34,    35,    36,    37,
-      38,    39,   119,   120,    40,    89,   127,   139,   147,   151,
-     152,   131,   135,   142,   153,   124,   137,    83,   111,   110,
+      38,    39,   119,   120,    40,    89,   127,   139,   147,   150,
+     151,   131,   135,   142,   152,   124,   137,    83,   111,   110,
      112,    41,    94,    42
 };
 
@@ -1546,63 +1546,59 @@ static const yytype_uint8 yydefgoto[] =
 static const yytype_int16 yytable[] =
 {
       52,    52,    53,    54,    48,    57,    58,    90,    59,    88,
-      88,     3,    85,    44,    47,    44,   133,    80,    43,    12,
-      81,    68,    69,    70,    71,    55,    92,   125,   126,    45,
-      77,    46,    78,    60,   150,    52,    49,    59,    82,    45,
-     155,    46,    91,    46,     6,     7,     8,    75,    95,    96,
-      97,    98,    99,   144,   101,   102,   103,   104,   105,   105,
-      12,    62,    72,    73,     6,    13,   117,    51,   118,    61,
-       6,   129,    74,    19,    88,     6,    46,    20,    51,    76,
-      93,    68,    69,    70,    71,    13,   100,   140,   132,   143,
-      88,    13,    88,    19,    70,    71,    13,    56,   -72,   145,
-     146,   122,   -13,    52,     4,   128,   113,     5,     6,     7,
-       8,     9,    10,   109,    11,   -72,   115,   -72,    68,    69,
-      70,    71,   106,   107,    12,   116,   114,   121,   130,    13,
-      14,   123,    15,   134,    16,    17,    18,    19,   138,   136,
-     141,    20,   149,     4,    84,    21,     5,     6,     7,     8,
-       9,    10,    50,   148,   154,   156,    79,     0,     0,     0,
-       0,     0,     0,    12,     0,     0,     0,     0,    13,    14,
-       0,    15,     0,    16,    17,    18,    19,     0,     0,     0,
-      20,     0,     0,     0,    21,     5,     6,     7,     8,    86,
-      10,     0,    87,     0,     0,     6,     7,     8,    51,     0,
-       0,     0,    12,     0,     0,     0,     0,    13,     0,     0,
-       0,    12,    16,    17,    18,    19,    13,     0,     0,    20,
-       0,     0,     0,     0,    19,     0,     0,     0,    20,    62,
-      63,    64,    65,    66,     0,     0,     0,    67,    62,    63,
-      64,    65,    66,     0,     0,     0,    67,     0,     0,    68,
-      69,    70,    71,     0,    92,     0,     0,     0,    68,    69,
-      70,    71
+      88,    85,     6,     7,     8,    75,     3,    12,    44,    68,
+      69,    70,    71,    43,    92,    44,    55,    45,    12,    46,
+      77,    60,    78,    13,    49,    52,    47,    59,   125,   126,
+       6,    19,    91,    51,    45,    20,    46,    76,    95,    96,
+      97,    98,    99,    46,   101,   102,   103,   104,   105,   105,
+     133,    13,    61,   -72,   144,    74,   117,    80,   118,    19,
+      81,   129,    46,    56,    88,    72,    73,   100,   149,    93,
+     -72,   134,   -72,   154,    88,   -13,    62,   132,    82,   143,
+       4,     6,    88,     5,     6,     7,     8,     9,    10,   109,
+      11,   122,   113,    52,   115,   128,    68,    69,    70,    71,
+      12,   114,    13,    70,    71,    13,    14,   116,    15,   121,
+      16,    17,    18,    19,   130,     6,   123,    20,    51,     4,
+     136,    21,     5,     6,     7,     8,     9,    10,    68,    69,
+      70,    71,   145,   146,   138,   141,    13,   106,   107,    12,
+     148,    84,    50,   140,    13,    14,   155,    15,   153,    16,
+      17,    18,    19,    79,     0,     0,    20,     0,     0,     0,
+      21,     5,     6,     7,     8,    86,    10,     0,    87,     0,
+       0,     6,     7,     8,    51,     0,     0,     0,    12,     0,
+       0,     0,     0,    13,     0,     0,     0,    12,    16,    17,
+      18,    19,    13,     0,     0,    20,     0,     0,     0,     0,
+      19,     0,     0,     0,    20,    62,    63,    64,    65,    66,
+       0,     0,     0,    67,    62,    63,    64,    65,    66,     0,
+       0,     0,    67,     0,     0,    68,    69,    70,    71,     0,
+      92,     0,     0,     0,    68,    69,    70,    71
 };
 
 static const yytype_int16 yycheck[] =
 {
       14,    15,    14,    15,    11,    19,    20,    54,    20,    53,
-      54,     0,    47,    12,    38,    12,   127,     5,    11,    21,
-       8,    34,    35,    36,    37,     8,    39,   111,   112,    38,
-      44,    40,    44,     8,   145,    49,    38,    49,    26,    38,
-     151,    40,    56,    40,     5,     6,     7,     8,    62,    63,
-      64,    65,    66,   137,    68,    69,    70,    71,    72,    73,
-      21,    14,    19,    20,     5,    26,    28,     8,    30,     3,
-       5,   118,    11,    34,   118,     5,    40,    38,     8,    40,
-      39,    34,    35,    36,    37,    26,     8,   134,   123,   136,
-     134,    26,   136,    34,    36,    37,    26,    38,    11,    24,
-      25,   108,     3,   117,     1,   117,    39,     4,     5,     6,
-       7,     8,     9,    41,    11,    28,    39,    30,    34,    35,
-      36,    37,    72,    73,    21,    23,    41,    38,     8,    26,
-      27,    43,    29,    10,    31,    32,    33,    34,    11,    39,
-      43,    38,     8,     1,    46,    42,     4,     5,     6,     7,
-       8,     9,    12,   140,   150,   153,    44,    -1,    -1,    -1,
-      -1,    -1,    -1,    21,    -1,    -1,    -1,    -1,    26,    27,
-      -1,    29,    -1,    31,    32,    33,    34,    -1,    -1,    -1,
-      38,    -1,    -1,    -1,    42,     4,     5,     6,     7,     8,
-       9,    -1,    11,    -1,    -1,     5,     6,     7,     8,    -1,
-      -1,    -1,    21,    -1,    -1,    -1,    -1,    26,    -1,    -1,
-      -1,    21,    31,    32,    33,    34,    26,    -1,    -1,    38,
-      -1,    -1,    -1,    -1,    34,    -1,    -1,    -1,    38,    14,
-      15,    16,    17,    18,    -1,    -1,    -1,    22,    14,    15,
-      16,    17,    18,    -1,    -1,    -1,    22,    -1,    -1,    34,
-      35,    36,    37,    -1,    39,    -1,    -1,    -1,    34,    35,
-      36,    37
+      54,    47,     5,     6,     7,     8,     0,    21,    12,    34,
+      35,    36,    37,    11,    39,    12,     8,    38,    21,    40,
+      44,     8,    44,    26,    38,    49,    38,    49,   111,   112,
+       5,    34,    56,     8,    38,    38,    40,    40,    62,    63,
+      64,    65,    66,    40,    68,    69,    70,    71,    72,    73,
+     127,    26,     3,    11,   137,    11,    28,     5,    30,    34,
+       8,   118,    40,    38,   118,    19,    20,     8,   145,    39,
+      28,   128,    30,   150,   128,     3,    14,   123,    26,   136,
+       1,     5,   136,     4,     5,     6,     7,     8,     9,    41,
+      11,   108,    39,   117,    39,   117,    34,    35,    36,    37,
+      21,    41,    26,    36,    37,    26,    27,    23,    29,    38,
+      31,    32,    33,    34,     8,     5,    43,    38,     8,     1,
+      39,    42,     4,     5,     6,     7,     8,     9,    34,    35,
+      36,    37,    24,    25,    11,    43,    26,    72,    73,    21,
+       8,    46,    12,   134,    26,    27,   152,    29,   149,    31,
+      32,    33,    34,    44,    -1,    -1,    38,    -1,    -1,    -1,
+      42,     4,     5,     6,     7,     8,     9,    -1,    11,    -1,
+      -1,     5,     6,     7,     8,    -1,    -1,    -1,    21,    -1,
+      -1,    -1,    -1,    26,    -1,    -1,    -1,    21,    31,    32,
+      33,    34,    26,    -1,    -1,    38,    -1,    -1,    -1,    -1,
+      34,    -1,    -1,    -1,    38,    14,    15,    16,    17,    18,
+      -1,    -1,    -1,    22,    14,    15,    16,    17,    18,    -1,
+      -1,    -1,    22,    -1,    -1,    34,    35,    36,    37,    -1,
+      39,    -1,    -1,    -1,    34,    35,    36,    37
 };
 
 /* YYSTOS[STATE-NUM] -- The symbol kind of the accessing symbol of
@@ -1622,9 +1618,9 @@ static const yytype_int8 yystos[] =
        8,    54,    54,    54,    54,    54,    56,    56,    52,    41,
       84,    83,    85,    39,    41,    39,    23,    28,    30,    67,
       68,    38,    51,    43,    80,    80,    80,    71,    55,    70,
-       8,    76,    49,    64,    10,    77,    39,    81,    11,    72,
-      70,    43,    78,    70,    80,    24,    25,    73,    67,     8,
-      64,    74,    75,    79,    72,    64,    78
+       8,    76,    49,    64,    70,    77,    39,    81,    11,    72,
+      67,    43,    78,    70,    80,    24,    25,    73,     8,    64,
+      74,    75,    79,    72,    64,    78
 };
 
 /* YYR1[RULE-NUM] -- Symbol kind of the left-hand side of rule RULE-NUM.  */
@@ -1651,7 +1647,7 @@ static const yytype_int8 yyr2[] =
        3,     3,     3,     3,     3,     3,     1,     1,     3,     1,
        1,     2,     3,     2,     1,     1,     1,     3,     3,     3,
        4,     4,     1,     1,     1,     1,     2,     1,     1,     3,
-       4,     1,     5,     2,     3,     1,     0,     5,     4,     2,
+       4,     1,     4,     2,     3,     1,     0,     5,     4,     2,
        0,     3,     0,     2,     0,     0,     3,     0,     0,     4,
        0,     0,     4,     0,     0,     3,     0,     3,     0,     3,
        0,     0,     7,     4
@@ -2233,540 +2229,540 @@ yyreduce:
   case 2: /* $@1: %empty  */
 #line 858 "./compiler/grammar.y"
                 {init();}
-#line 2237 "grammar.tab.c"
+#line 2233 "grammar.tab.c"
     break;
 
   case 3: /* StartDebugger: $@1 StartParse T_EndOfFile  */
 #line 858 "./compiler/grammar.y"
                                                  {
-		printf("\nValid Ruby Syntax\n");  printAST((yyvsp[-1].node));
+		printf("\nSintaxe Ruby Válida\n");  printAST((yyvsp[-1].node));
 		printf("\n-------------------------Código de 3 endereços--------------------------\n"); 
 		codeGenOp((yyvsp[-1].node)); 
 		printSTable(); 
 		freeAll(); 
 		exit(0);
 }
-#line 2250 "grammar.tab.c"
+#line 2246 "grammar.tab.c"
     break;
 
   case 4: /* constant: T_Number  */
 #line 867 "./compiler/grammar.y"
                     {insertRecord("Constant", (yyvsp[0].text), (yylsp[0]).first_line, currentScope); (yyval.node) = createID_Const("Constant", (yyvsp[0].text), currentScope);}
-#line 2256 "grammar.tab.c"
+#line 2252 "grammar.tab.c"
     break;
 
   case 5: /* constant: T_String  */
 #line 868 "./compiler/grammar.y"
                     {insertRecord("Constant", (yyvsp[0].text), (yylsp[0]).first_line, currentScope); (yyval.node) = createID_Const("Constant", (yyvsp[0].text), currentScope);}
-#line 2262 "grammar.tab.c"
+#line 2258 "grammar.tab.c"
     break;
 
   case 6: /* term: T_ID  */
 #line 870 "./compiler/grammar.y"
-            {modifyRecordID("Identifier", (yyvsp[0].text), (yylsp[0]).first_line, currentScope); (yyval.node) = createID_Const("Identifier", (yyvsp[0].text), currentScope);}
-#line 2268 "grammar.tab.c"
+            {modifyRecordID("Identificador", (yyvsp[0].text), (yylsp[0]).first_line, currentScope); (yyval.node) = createID_Const("Identificador", (yyvsp[0].text), currentScope);}
+#line 2264 "grammar.tab.c"
     break;
 
   case 7: /* term: constant  */
 #line 871 "./compiler/grammar.y"
                 {(yyval.node) = (yyvsp[0].node);}
-#line 2274 "grammar.tab.c"
+#line 2270 "grammar.tab.c"
     break;
 
   case 8: /* term: list_index  */
 #line 872 "./compiler/grammar.y"
                   {(yyval.node) = (yyvsp[0].node);}
-#line 2280 "grammar.tab.c"
+#line 2276 "grammar.tab.c"
     break;
 
   case 9: /* list_index: T_ID T_OB constant T_CB  */
 #line 875 "./compiler/grammar.y"
                                      {checkList((yyvsp[-3].text), (yylsp[-3]).first_line, currentScope); (yyval.node) = createOp("ListIndex", 2, createID_Const("ListTypeID", (yyvsp[-3].text), currentScope), (yyvsp[-1].node));}
-#line 2286 "grammar.tab.c"
+#line 2282 "grammar.tab.c"
     break;
 
   case 10: /* StartParse: T_NL StartParse  */
 #line 877 "./compiler/grammar.y"
                              {(yyval.node)=(yyvsp[0].node);}
-#line 2292 "grammar.tab.c"
+#line 2288 "grammar.tab.c"
     break;
 
   case 11: /* $@2: %empty  */
 #line 877 "./compiler/grammar.y"
                                                             {resetDepth();}
-#line 2298 "grammar.tab.c"
+#line 2294 "grammar.tab.c"
     break;
 
   case 12: /* StartParse: finalStatements T_NL $@2 StartParse  */
 #line 877 "./compiler/grammar.y"
                                                                                        {(yyval.node) = createOp("NewLine", 2, (yyvsp[-3].node), (yyvsp[0].node));}
-#line 2304 "grammar.tab.c"
+#line 2300 "grammar.tab.c"
     break;
 
   case 13: /* StartParse: finalStatements T_NL  */
 #line 877 "./compiler/grammar.y"
                                                                                                                                                     {(yyval.node)=(yyvsp[-1].node);}
-#line 2310 "grammar.tab.c"
+#line 2306 "grammar.tab.c"
     break;
 
   case 14: /* basic_stmt: pass_stmt  */
 #line 879 "./compiler/grammar.y"
                        {(yyval.node)=(yyvsp[0].node);}
-#line 2316 "grammar.tab.c"
+#line 2312 "grammar.tab.c"
     break;
 
   case 15: /* basic_stmt: break_stmt  */
 #line 880 "./compiler/grammar.y"
                         {(yyval.node)=(yyvsp[0].node);}
-#line 2322 "grammar.tab.c"
+#line 2318 "grammar.tab.c"
     break;
 
   case 16: /* basic_stmt: import_stmt  */
 #line 881 "./compiler/grammar.y"
                          {(yyval.node)=(yyvsp[0].node);}
-#line 2328 "grammar.tab.c"
+#line 2324 "grammar.tab.c"
     break;
 
   case 17: /* basic_stmt: assign_stmt  */
 #line 882 "./compiler/grammar.y"
                          {(yyval.node)=(yyvsp[0].node);}
-#line 2334 "grammar.tab.c"
+#line 2330 "grammar.tab.c"
     break;
 
   case 18: /* basic_stmt: arith_exp  */
 #line 883 "./compiler/grammar.y"
                        {(yyval.node)=(yyvsp[0].node);}
-#line 2340 "grammar.tab.c"
+#line 2336 "grammar.tab.c"
     break;
 
   case 19: /* basic_stmt: bool_exp  */
 #line 884 "./compiler/grammar.y"
                       {(yyval.node)=(yyvsp[0].node);}
-#line 2346 "grammar.tab.c"
+#line 2342 "grammar.tab.c"
     break;
 
   case 20: /* basic_stmt: print_stmt  */
 #line 885 "./compiler/grammar.y"
                         {(yyval.node)=(yyvsp[0].node);}
-#line 2352 "grammar.tab.c"
+#line 2348 "grammar.tab.c"
     break;
 
   case 21: /* basic_stmt: return_stmt  */
 #line 886 "./compiler/grammar.y"
                          {(yyval.node)=(yyvsp[0].node);}
-#line 2358 "grammar.tab.c"
+#line 2354 "grammar.tab.c"
     break;
 
   case 22: /* arith_exp: term  */
 #line 888 "./compiler/grammar.y"
                  {(yyval.node)=(yyvsp[0].node);}
-#line 2364 "grammar.tab.c"
+#line 2360 "grammar.tab.c"
     break;
 
   case 23: /* arith_exp: arith_exp T_PL arith_exp  */
 #line 889 "./compiler/grammar.y"
                                        {(yyval.node) = createOp("+", 2, (yyvsp[-2].node), (yyvsp[0].node));}
-#line 2370 "grammar.tab.c"
+#line 2366 "grammar.tab.c"
     break;
 
   case 24: /* arith_exp: arith_exp T_MN arith_exp  */
 #line 890 "./compiler/grammar.y"
                                        {(yyval.node) = createOp("-", 2, (yyvsp[-2].node), (yyvsp[0].node));}
-#line 2376 "grammar.tab.c"
+#line 2372 "grammar.tab.c"
     break;
 
   case 25: /* arith_exp: arith_exp T_ML arith_exp  */
 #line 891 "./compiler/grammar.y"
                                        {(yyval.node) = createOp("*", 2, (yyvsp[-2].node), (yyvsp[0].node));}
-#line 2382 "grammar.tab.c"
+#line 2378 "grammar.tab.c"
     break;
 
   case 26: /* arith_exp: arith_exp T_DV arith_exp  */
 #line 892 "./compiler/grammar.y"
                                        {(yyval.node) = createOp("/", 2, (yyvsp[-2].node), (yyvsp[0].node));}
-#line 2388 "grammar.tab.c"
+#line 2384 "grammar.tab.c"
     break;
 
   case 27: /* arith_exp: T_MN arith_exp  */
 #line 893 "./compiler/grammar.y"
                            {(yyval.node) = createOp("-", 1, (yyvsp[0].node));}
-#line 2394 "grammar.tab.c"
+#line 2390 "grammar.tab.c"
     break;
 
   case 28: /* arith_exp: T_OP arith_exp T_CP  */
 #line 894 "./compiler/grammar.y"
                                 {(yyval.node) = (yyvsp[-1].node);}
-#line 2400 "grammar.tab.c"
+#line 2396 "grammar.tab.c"
     break;
 
   case 29: /* bool_exp: bool_term T_Or bool_term  */
 #line 897 "./compiler/grammar.y"
                                     {(yyval.node) = createOp("or", 2, (yyvsp[-2].node), (yyvsp[0].node));}
-#line 2406 "grammar.tab.c"
+#line 2402 "grammar.tab.c"
     break;
 
   case 30: /* bool_exp: arith_exp T_LT arith_exp  */
 #line 898 "./compiler/grammar.y"
                                     {(yyval.node) = createOp("<", 2, (yyvsp[-2].node), (yyvsp[0].node));}
-#line 2412 "grammar.tab.c"
+#line 2408 "grammar.tab.c"
     break;
 
   case 31: /* bool_exp: bool_term T_And bool_term  */
 #line 899 "./compiler/grammar.y"
                                      {(yyval.node) = createOp("and", 2, (yyvsp[-2].node), (yyvsp[0].node));}
-#line 2418 "grammar.tab.c"
+#line 2414 "grammar.tab.c"
     break;
 
   case 32: /* bool_exp: arith_exp T_GT arith_exp  */
 #line 900 "./compiler/grammar.y"
                                     {(yyval.node) = createOp(">", 2, (yyvsp[-2].node), (yyvsp[0].node));}
-#line 2424 "grammar.tab.c"
+#line 2420 "grammar.tab.c"
     break;
 
   case 33: /* bool_exp: arith_exp T_ELT arith_exp  */
 #line 901 "./compiler/grammar.y"
                                      {(yyval.node) = createOp("<=", 2, (yyvsp[-2].node), (yyvsp[0].node));}
-#line 2430 "grammar.tab.c"
+#line 2426 "grammar.tab.c"
     break;
 
   case 34: /* bool_exp: arith_exp T_EGT arith_exp  */
 #line 902 "./compiler/grammar.y"
                                      {(yyval.node) = createOp(">=", 2, (yyvsp[-2].node), (yyvsp[0].node));}
-#line 2436 "grammar.tab.c"
+#line 2432 "grammar.tab.c"
     break;
 
   case 35: /* bool_exp: arith_exp T_In T_ID  */
 #line 903 "./compiler/grammar.y"
                                {checkList((yyvsp[0].text), (yylsp[0]).first_line, currentScope); (yyval.node) = createOp("in", 2, (yyvsp[-2].node), createID_Const("Constant", (yyvsp[0].text), currentScope));}
-#line 2442 "grammar.tab.c"
+#line 2438 "grammar.tab.c"
     break;
 
   case 36: /* bool_exp: bool_term  */
 #line 904 "./compiler/grammar.y"
                      {(yyval.node)=(yyvsp[0].node);}
-#line 2448 "grammar.tab.c"
+#line 2444 "grammar.tab.c"
     break;
 
   case 37: /* bool_term: bool_factor  */
 #line 906 "./compiler/grammar.y"
                         {(yyval.node) = (yyvsp[0].node);}
-#line 2454 "grammar.tab.c"
+#line 2450 "grammar.tab.c"
     break;
 
   case 38: /* bool_term: arith_exp T_EQ arith_exp  */
 #line 907 "./compiler/grammar.y"
                                      {(yyval.node) = createOp("==", 2, (yyvsp[-2].node), (yyvsp[0].node));}
-#line 2460 "grammar.tab.c"
+#line 2456 "grammar.tab.c"
     break;
 
   case 39: /* bool_term: T_True  */
 #line 908 "./compiler/grammar.y"
                    {insertRecord("Constant", "True", (yylsp[0]).first_line, currentScope); (yyval.node) = createID_Const("Constant", "True", currentScope);}
-#line 2466 "grammar.tab.c"
+#line 2462 "grammar.tab.c"
     break;
 
   case 40: /* bool_term: T_False  */
 #line 909 "./compiler/grammar.y"
                     {insertRecord("Constant", "False", (yylsp[0]).first_line, currentScope); (yyval.node) = createID_Const("Constant", "False", currentScope);}
-#line 2472 "grammar.tab.c"
+#line 2468 "grammar.tab.c"
     break;
 
   case 41: /* bool_factor: T_Not bool_factor  */
 #line 911 "./compiler/grammar.y"
                                 {(yyval.node) = createOp("!", 1, (yyvsp[0].node));}
-#line 2478 "grammar.tab.c"
+#line 2474 "grammar.tab.c"
     break;
 
   case 42: /* bool_factor: T_OP bool_exp T_CP  */
 #line 912 "./compiler/grammar.y"
                                  {(yyval.node) = (yyvsp[-1].node);}
-#line 2484 "grammar.tab.c"
+#line 2480 "grammar.tab.c"
     break;
 
   case 43: /* import_stmt: T_Import T_ID  */
 #line 914 "./compiler/grammar.y"
                             {insertRecord("PackageName", (yyvsp[0].text), (yylsp[0]).first_line, currentScope); (yyval.node) = createOp("require", 1, createID_Const("PackageName", (yyvsp[0].text), currentScope));}
-#line 2490 "grammar.tab.c"
+#line 2486 "grammar.tab.c"
     break;
 
   case 44: /* pass_stmt: T_Pass  */
 #line 915 "./compiler/grammar.y"
                    {(yyval.node) = createOp("pass", 0);}
-#line 2496 "grammar.tab.c"
+#line 2492 "grammar.tab.c"
     break;
 
   case 45: /* break_stmt: T_Break  */
 #line 916 "./compiler/grammar.y"
                      {(yyval.node) = createOp("break", 0);}
-#line 2502 "grammar.tab.c"
+#line 2498 "grammar.tab.c"
     break;
 
   case 46: /* return_stmt: T_Return  */
 #line 917 "./compiler/grammar.y"
                        {(yyval.node) = createOp("return", 0);}
-#line 2508 "grammar.tab.c"
+#line 2504 "grammar.tab.c"
     break;
 
   case 47: /* assign_stmt: T_ID T_EQL arith_exp  */
 #line 919 "./compiler/grammar.y"
-                                   {insertRecord("Identifier", (yyvsp[-2].text), (yylsp[-2]).first_line, currentScope); (yyval.node) = createOp("=", 2, createID_Const("Identifier", (yyvsp[-2].text), currentScope), (yyvsp[0].node));}
-#line 2514 "grammar.tab.c"
+                                   {insertRecord("Identificador", (yyvsp[-2].text), (yylsp[-2]).first_line, currentScope); (yyval.node) = createOp("=", 2, createID_Const("Identificador", (yyvsp[-2].text), currentScope), (yyvsp[0].node));}
+#line 2510 "grammar.tab.c"
     break;
 
   case 48: /* assign_stmt: T_ID T_EQL bool_exp  */
 #line 920 "./compiler/grammar.y"
-                                  {insertRecord("Identifier", (yyvsp[-2].text), (yylsp[-2]).first_line, currentScope);(yyval.node) = createOp("=", 2, createID_Const("Identifier", (yyvsp[-2].text), currentScope), (yyvsp[0].node));}
-#line 2520 "grammar.tab.c"
+                                  {insertRecord("Identificador", (yyvsp[-2].text), (yylsp[-2]).first_line, currentScope);(yyval.node) = createOp("=", 2, createID_Const("Identificador", (yyvsp[-2].text), currentScope), (yyvsp[0].node));}
+#line 2516 "grammar.tab.c"
     break;
 
   case 49: /* assign_stmt: T_ID T_EQL func_call  */
 #line 921 "./compiler/grammar.y"
-                                    {insertRecord("Identifier", (yyvsp[-2].text), (yylsp[-2]).first_line, currentScope); (yyval.node) = createOp("=", 2, createID_Const("Identifier", (yyvsp[-2].text), currentScope), (yyvsp[0].node));}
-#line 2526 "grammar.tab.c"
+                                    {insertRecord("Identificador", (yyvsp[-2].text), (yylsp[-2]).first_line, currentScope); (yyval.node) = createOp("=", 2, createID_Const("Identificador", (yyvsp[-2].text), currentScope), (yyvsp[0].node));}
+#line 2522 "grammar.tab.c"
     break;
 
   case 50: /* assign_stmt: T_ID T_EQL T_OB T_CB  */
 #line 922 "./compiler/grammar.y"
                                    {insertRecord("ListTypeID", (yyvsp[-3].text), (yylsp[-3]).first_line, currentScope); (yyval.node) = createID_Const("ListTypeID", (yyvsp[-3].text), currentScope);}
-#line 2532 "grammar.tab.c"
+#line 2528 "grammar.tab.c"
     break;
 
   case 51: /* print_stmt: T_Print T_OP term T_CP  */
 #line 924 "./compiler/grammar.y"
                                     {(yyval.node) = createOp("Puts", 1, (yyvsp[-1].node));}
-#line 2538 "grammar.tab.c"
+#line 2534 "grammar.tab.c"
     break;
 
   case 52: /* finalStatements: basic_stmt  */
 #line 926 "./compiler/grammar.y"
                              {(yyval.node) = (yyvsp[0].node);}
-#line 2544 "grammar.tab.c"
+#line 2540 "grammar.tab.c"
     break;
 
   case 53: /* finalStatements: cmpd_stmt  */
 #line 927 "./compiler/grammar.y"
                             {(yyval.node) = (yyvsp[0].node);}
-#line 2550 "grammar.tab.c"
+#line 2546 "grammar.tab.c"
     break;
 
   case 54: /* finalStatements: func_def  */
 #line 928 "./compiler/grammar.y"
                            {(yyval.node) = (yyvsp[0].node);}
-#line 2556 "grammar.tab.c"
+#line 2552 "grammar.tab.c"
     break;
 
   case 55: /* finalStatements: func_call  */
 #line 929 "./compiler/grammar.y"
                             {(yyval.node) = (yyvsp[0].node);}
-#line 2562 "grammar.tab.c"
+#line 2558 "grammar.tab.c"
     break;
 
   case 56: /* finalStatements: error T_NL  */
 #line 930 "./compiler/grammar.y"
                              {yyerrok; yyclearin; (yyval.node)=createOp("SyntaxError", 0);}
-#line 2568 "grammar.tab.c"
+#line 2564 "grammar.tab.c"
     break;
 
   case 57: /* cmpd_stmt: if_stmt  */
 #line 932 "./compiler/grammar.y"
                     {(yyval.node) = (yyvsp[0].node);}
-#line 2574 "grammar.tab.c"
+#line 2570 "grammar.tab.c"
     break;
 
   case 58: /* cmpd_stmt: while_stmt  */
 #line 933 "./compiler/grammar.y"
                        {(yyval.node) = (yyvsp[0].node);}
-#line 2580 "grammar.tab.c"
+#line 2576 "grammar.tab.c"
     break;
 
   case 59: /* if_stmt: T_If bool_exp start_suite  */
 #line 936 "./compiler/grammar.y"
                                     {(yyval.node) = createOp("If", 2, (yyvsp[-1].node), (yyvsp[0].node));}
-#line 2586 "grammar.tab.c"
+#line 2582 "grammar.tab.c"
     break;
 
   case 60: /* if_stmt: T_If bool_exp start_suite elif_stmts  */
 #line 937 "./compiler/grammar.y"
                                                {(yyval.node) = createOp("If", 3, (yyvsp[-2].node), (yyvsp[0].node), (yyvsp[0].node));}
-#line 2592 "grammar.tab.c"
+#line 2588 "grammar.tab.c"
     break;
 
   case 61: /* elif_stmts: else_stmt  */
 #line 939 "./compiler/grammar.y"
                        {(yyval.node)= (yyvsp[0].node);}
-#line 2598 "grammar.tab.c"
+#line 2594 "grammar.tab.c"
     break;
 
-  case 62: /* elif_stmts: T_Elsif bool_exp T_Cln start_suite elif_stmts  */
+  case 62: /* elif_stmts: T_Elsif bool_exp start_suite elif_stmts  */
 #line 940 "./compiler/grammar.y"
-                                                           {(yyval.node)= createOp("Elsif", 3, (yyvsp[-3].node), (yyvsp[-1].node), (yyvsp[0].node));}
-#line 2604 "grammar.tab.c"
+                                                     {(yyval.node)= createOp("Elsif", 3, (yyvsp[-2].node), (yyvsp[0].node), (yyvsp[0].node));}
+#line 2600 "grammar.tab.c"
     break;
 
   case 63: /* else_stmt: T_Else start_suite  */
 #line 942 "./compiler/grammar.y"
                                {(yyval.node) = createOp("Else", 1, (yyvsp[0].node));}
-#line 2610 "grammar.tab.c"
+#line 2606 "grammar.tab.c"
     break;
 
   case 64: /* while_stmt: T_While bool_exp start_suite  */
 #line 944 "./compiler/grammar.y"
                                           {(yyval.node) = createOp("While", 2, (yyvsp[-1].node), (yyvsp[0].node));}
-#line 2616 "grammar.tab.c"
+#line 2612 "grammar.tab.c"
     break;
 
   case 65: /* start_suite: basic_stmt  */
 #line 946 "./compiler/grammar.y"
                          {(yyval.node) = (yyvsp[0].node);}
-#line 2622 "grammar.tab.c"
+#line 2618 "grammar.tab.c"
     break;
 
   case 66: /* $@3: %empty  */
 #line 947 "./compiler/grammar.y"
                       {initNewTable((yyvsp[0].depth)); updateCScope((yyvsp[0].depth));}
-#line 2628 "grammar.tab.c"
+#line 2624 "grammar.tab.c"
     break;
 
   case 67: /* start_suite: T_NL ID $@3 finalStatements suite  */
 #line 947 "./compiler/grammar.y"
                                                                                                 {(yyval.node) = createOp("BeginBlock", 2, (yyvsp[-1].node), (yyvsp[0].node));}
-#line 2634 "grammar.tab.c"
+#line 2630 "grammar.tab.c"
     break;
 
   case 68: /* suite: T_NL ND finalStatements suite  */
 #line 949 "./compiler/grammar.y"
                                       {(yyval.node) = createOp("Next", 2, (yyvsp[-1].node), (yyvsp[0].node));}
-#line 2640 "grammar.tab.c"
+#line 2636 "grammar.tab.c"
     break;
 
   case 69: /* suite: T_NL end_suite  */
 #line 950 "./compiler/grammar.y"
                        {(yyval.node) = (yyvsp[0].node);}
-#line 2646 "grammar.tab.c"
+#line 2642 "grammar.tab.c"
     break;
 
   case 70: /* $@4: %empty  */
 #line 952 "./compiler/grammar.y"
                {updateCScope((yyvsp[0].depth));}
-#line 2652 "grammar.tab.c"
+#line 2648 "grammar.tab.c"
     break;
 
   case 71: /* end_suite: DD $@4 finalStatements  */
 #line 952 "./compiler/grammar.y"
                                                           {(yyval.node) = createOp("EndBlock", 1, (yyvsp[0].node));}
-#line 2658 "grammar.tab.c"
+#line 2654 "grammar.tab.c"
     break;
 
   case 72: /* $@5: %empty  */
 #line 953 "./compiler/grammar.y"
                {updateCScope((yyvsp[0].depth));}
-#line 2664 "grammar.tab.c"
+#line 2660 "grammar.tab.c"
     break;
 
   case 73: /* end_suite: DD $@5  */
 #line 953 "./compiler/grammar.y"
                                           {(yyval.node) = createOp("EndBlock", 0);}
-#line 2670 "grammar.tab.c"
+#line 2666 "grammar.tab.c"
     break;
 
   case 74: /* end_suite: %empty  */
 #line 954 "./compiler/grammar.y"
             {(yyval.node) = createOp("EndBlock", 0); resetDepth();}
-#line 2676 "grammar.tab.c"
+#line 2672 "grammar.tab.c"
     break;
 
   case 75: /* $@6: %empty  */
 #line 956 "./compiler/grammar.y"
             {addToList((yyvsp[0].text), 1);}
-#line 2682 "grammar.tab.c"
+#line 2678 "grammar.tab.c"
     break;
 
   case 76: /* args: T_ID $@6 args_list  */
 #line 956 "./compiler/grammar.y"
                                                 {(yyval.node) = createOp(argsList, 0); clearArgsList();}
-#line 2688 "grammar.tab.c"
+#line 2684 "grammar.tab.c"
     break;
 
   case 77: /* args: %empty  */
 #line 957 "./compiler/grammar.y"
        {(yyval.node) = createOp("Void", 0);}
-#line 2694 "grammar.tab.c"
+#line 2690 "grammar.tab.c"
     break;
 
   case 78: /* $@7: %empty  */
 #line 959 "./compiler/grammar.y"
                          {addToList((yyvsp[0].text), 0);}
-#line 2700 "grammar.tab.c"
+#line 2696 "grammar.tab.c"
     break;
 
   case 81: /* $@8: %empty  */
 #line 962 "./compiler/grammar.y"
                          {addToList((yyvsp[-1].text), 0);}
-#line 2706 "grammar.tab.c"
+#line 2702 "grammar.tab.c"
     break;
 
   case 84: /* $@9: %empty  */
 #line 964 "./compiler/grammar.y"
                  {addToList((yyvsp[0].text), 1);}
-#line 2712 "grammar.tab.c"
+#line 2708 "grammar.tab.c"
     break;
 
   case 85: /* call_args: T_ID $@9 call_list  */
 #line 964 "./compiler/grammar.y"
                                                      {(yyval.node) = createOp(argsList, 0); clearArgsList();}
-#line 2718 "grammar.tab.c"
+#line 2714 "grammar.tab.c"
     break;
 
   case 86: /* $@10: %empty  */
 #line 965 "./compiler/grammar.y"
                                                    {addToList((yyvsp[0].text), 1);}
-#line 2724 "grammar.tab.c"
+#line 2720 "grammar.tab.c"
     break;
 
   case 87: /* call_args: T_Number $@10 call_list  */
 #line 965 "./compiler/grammar.y"
                                                                                        {(yyval.node) = createOp(argsList, 0); clearArgsList();}
-#line 2730 "grammar.tab.c"
+#line 2726 "grammar.tab.c"
     break;
 
   case 88: /* $@11: %empty  */
 #line 966 "./compiler/grammar.y"
                                                    {addToList((yyvsp[0].text), 1);}
-#line 2736 "grammar.tab.c"
+#line 2732 "grammar.tab.c"
     break;
 
   case 89: /* call_args: T_String $@11 call_list  */
 #line 966 "./compiler/grammar.y"
                                                                                        {(yyval.node) = createOp(argsList, 0); clearArgsList();}
-#line 2742 "grammar.tab.c"
+#line 2738 "grammar.tab.c"
     break;
 
   case 90: /* call_args: %empty  */
 #line 967 "./compiler/grammar.y"
                                           {(yyval.node) = createOp("Void", 0);}
-#line 2748 "grammar.tab.c"
+#line 2744 "grammar.tab.c"
     break;
 
   case 91: /* $@12: %empty  */
 #line 969 "./compiler/grammar.y"
                       {insertRecord("Func_Name", (yyvsp[0].text), (yylsp[0]).first_line, currentScope);}
-#line 2754 "grammar.tab.c"
+#line 2750 "grammar.tab.c"
     break;
 
   case 92: /* func_def: T_Def T_ID $@12 T_OP args T_CP start_suite  */
 #line 969 "./compiler/grammar.y"
                                                                                                                       {(yyval.node) = createOp("Func_Name", 3, createID_Const("Func_Name", (yyvsp[-5].text), currentScope), (yyvsp[-2].node), (yyvsp[0].node));}
-#line 2760 "grammar.tab.c"
+#line 2756 "grammar.tab.c"
     break;
 
   case 93: /* func_call: T_ID T_OP call_args T_CP  */
 #line 971 "./compiler/grammar.y"
                                      {(yyval.node) = createOp("Func_Call", 2, createID_Const("Func_Name", (yyvsp[-3].text), currentScope), (yyvsp[-1].node));}
-#line 2766 "grammar.tab.c"
+#line 2762 "grammar.tab.c"
     break;
 
 
-#line 2770 "grammar.tab.c"
+#line 2766 "grammar.tab.c"
 
       default: break;
     }
