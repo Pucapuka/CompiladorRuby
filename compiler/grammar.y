@@ -842,7 +842,7 @@
 %union { char *text; int depth; struct ASTNode* node;};
 %locations
    	  
-%token T_EndOfFile T_Then T_Return T_Number T_True T_False T_ID T_Print T_Cln T_Scln T_NL T_EQL T_NEQ T_EQ T_GT T_LT T_EGT T_ELT T_Or T_And T_Not T_In ID ND DD T_String T_If T_Elsif T_While T_Else T_Import T_Break T_Pass T_MN T_PL T_DV T_ML T_OP T_CP T_OB T_CB T_Def T_Comma T_List
+%token T_EndOfFile T_Then T_Return T_Number T_True T_False T_ID T_Print T_Cln T_Scln T_NL T_EQL T_NEQ T_EQ T_GT T_LT T_EGT T_ELT T_Or T_And T_End T_Not T_In ID ND DD T_String T_If T_Elsif T_While T_Else T_Import T_Break T_Pass T_MN T_PL T_DV T_ML T_OP T_CP T_OB T_CB T_Def T_Comma T_List
 
 %right T_EQL                                          
 %left T_PL T_MN
@@ -909,8 +909,7 @@ bool_term : bool_factor {$$ = $1;}
           | T_False {insertRecord("Constant", "False", @1.first_line, currentScope); $$ = createID_Const("Constant", "False", currentScope);}; 
           
 bool_factor : T_Not bool_factor {$$ = createOp("!", 1, $2);}
-            | bool_exp {$$ = $1;};
- 
+            | T_OP bool_exp T_CP {$$ = $2;};
 
 import_stmt : T_Import T_ID {insertRecord("PackageName", $<text>2, @2.first_line, currentScope); $$ = createOp("require", 1, createID_Const("PackageName", $<text>2, currentScope));};
 pass_stmt : T_Pass {$$ = createOp("pass", 0);};
@@ -934,15 +933,15 @@ cmpd_stmt : if_stmt {$$ = $1;}
           | while_stmt {$$ = $1;};
 
 
-if_stmt : T_If bool_exp start_suite {$$ = createOp("If", 2, $2, $3);}
-        | T_If bool_exp start_suite elif_stmts {$$ = createOp("If", 3, $2, $4, $4);};
+if_stmt : T_If bool_exp start_suite T_End {$$ = createOp("If", 2, $2, $3);}
+        | T_If bool_exp start_suite elif_stmts T_End{$$ = createOp("If", 3, $2, $4, $4);};
 
 elif_stmts : else_stmt {$$= $1;}
            | T_Elsif bool_exp start_suite elif_stmts {$$= createOp("Elsif", 3, $2, $4, $4);};
 
 else_stmt : T_Else start_suite {$$ = createOp("Else", 1, $2);};
 
-while_stmt : T_While bool_exp start_suite {$$ = createOp("While", 2, $2, $3);}; 
+while_stmt : T_While bool_exp start_suite T_End {$$ = createOp("While", 2, $2, $3);}; 
 
 start_suite : basic_stmt {$$ = $1;}
             | T_NL ID {initNewTable($<depth>2); updateCScope($<depth>2);} finalStatements suite {$$ = createOp("BeginBlock", 2, $4, $5);};
@@ -967,7 +966,8 @@ call_args : T_ID {addToList($<text>1, 1);} call_list {$$ = createOp(argsList, 0)
 					| T_String {addToList($<text>1, 1);} call_list {$$ = createOp(argsList, 0); clearArgsList();}	
 					| {$$ = createOp("Void", 0);};
 
-func_def : T_Def T_ID {insertRecord("Func_Name", $<text>2, @2.first_line, currentScope);} T_OP args T_CP start_suite {$$ = createOp("Func_Name", 3, createID_Const("Func_Name", $<text>2, currentScope), $5, $7);};
+func_def : T_Def T_ID {insertRecord("Func_Name", $<text>2, @2.first_line, currentScope);} T_OP args T_CP start_suite T_End{$$ = createOp("Func_Name", 3, createID_Const("Func_Name", $<text>2, currentScope), $5, $7);};
+		|  T_Def T_ID {insertRecord("Func_Name", $<text>2, @2.first_line, currentScope);} start_suite T_End{$$ = createOp("Func_Name", 3, createID_Const("Func_Name", $<text>2, currentScope), $4, $4);};
 
 func_call : T_ID T_OP call_args T_CP {$$ = createOp("Func_Call", 2, createID_Const("Func_Name", $<text>1, currentScope), $3);};
 

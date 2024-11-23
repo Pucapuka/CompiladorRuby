@@ -110,6 +110,7 @@ Multiline_comment \'\'\'.+\'\'\'
 "while" {debug("While"); return T_While;}
 "break" {debug("Break"); return T_Break;}
 "and" {debug("And"); return T_And;}
+"end" {debug("End"); return T_End;}
 "or" {debug("Or"); return T_Or;}
 "not" {debug("Not"); return T_Not;}
 "elsif" {debug("Elsif"); return T_Elsif;}

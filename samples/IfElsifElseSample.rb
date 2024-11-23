@@ -16,4 +16,4 @@ elsif y==1
 	c=2
 else
 	c=1
-
+end

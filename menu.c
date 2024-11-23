@@ -20,11 +20,10 @@ void mostrar_tela_inicial() {
 // Função para exibir o menu da segunda tela
 void mostrar_menu() {
     printf("\nOpções:\n");
-    printf("1) Exemplo Geral com def e while\n");
-    printf("2) Exemplo Geral com if, elsif e else\n");
-    printf("3) Exemplo com erro sintático\n");
-    printf("4) Exemplo com erro semântico\n");
-    printf("5) Exemplo com três endereços\n");
+    printf("1) Exemplo Geral com If Elsif e Else\n");
+    printf("2) Exemplo com erro sintático\n");
+    printf("3) Exemplo com erro semântico\n");
+    printf("5) Exemplo com Código Intermediário de três endereços\n");
     printf("0) Sair\n");
     printf("\nEscolha uma opção: ");
 }
@@ -51,19 +50,17 @@ int main() {
         getchar(); // Limpa o buffer do teclado
 
         switch (opcao) {
+        
             case 1:
-                executar_comando("defAndGeneralSample.rb");
-                break;
-            case 2:
                 executar_comando("IfElsifElseSample.rb");
                 break;
-            case 3:
+            case 2:
                 executar_comando("syntacticDefError.rb");
                 break;
-            case 4:
+            case 3:
                 executar_comando("semanticErrorSample.rb");
                 break;
-            case 5:
+            case 4:
                 executar_comando("threeAddressSample.rb");
                 break;
             case 0:
