@@ -23,7 +23,7 @@ void mostrar_menu() {
     printf("1) Exemplo Geral com If Elsif e Else\n");
     printf("2) Exemplo com erro sintático\n");
     printf("3) Exemplo com erro semântico\n");
-    printf("5) Exemplo com Código Intermediário de três endereços\n");
+    printf("4) Exemplo com Código Intermediário de três endereços\n");
     printf("0) Sair\n");
     printf("\nEscolha uma opção: ");
 }
